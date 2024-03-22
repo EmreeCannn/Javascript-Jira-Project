@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Jira Application</title>
+</head>
+<body>
+    <h1 class="app_title">Jira Application</h1>
+    <div class="drag_container">
+        <ul class="drag_list">
+            <!-- todo section -->
+            <li class="drag_column todo_column">
+                <span class="header">
+                    <h1>Todo</h1>
+                </span>
+
+                <div class="todo_content" id="todo_content">
+                    <ul class="drag_item_list" id="todo_List" ondragover="allowdrop(event)" ondragenter="dragEnter(0)"
+                    ondrop="drop(event)">
+                        <!-- ondargover sayesinde  hangi datanın bırakılacağını anlayabilirm 
+                        ama default olrak data yı başka bir yere drop etmek yasak 
+                    bunu overridelamak  için fonksiyon tanımlayıp event.preventDefault() demem lazım -->
+                        
+                    </ul>
+                </div>
+                <div class="add_container">
+                    <div class="add_item" contenteditable="true"></div>
+                </div>
+
+                <div class="add_btn_group">
+                    <div class="add_btn" onclick="showitemdiv(0)">
+                        <span class="plus_span">+</span>
+                    </div>
+                    <div class="add_btn update" onclick="hideitemdiv(0)">
+                        <span>Save</span>
+                    </div>
+                </div>
+            </li>
+
+            <!-- progress section -->
+            <li class="drag_column progress_column">
+                <span class="header">
+                    <h1>In Progress</h1>
+                </span>
+
+                <div class="progres_content" id="progres_content">
+                    <ul class="drag_item_list" id="progres_List" ondragover="allowdrop(event)" ondragenter="dragEnter(1)"
+                    ondrop="drop(event)">
+                      
+                    </ul>
+                </div>
+                <div class="add_container">
+                    <div class="add_item" contenteditable="true">
+                        <!--  contenteditable="true" dersem içerisine yazı yazabilirim-->
+                    </div>
+                </div>
+
+                <div class="add_btn_group">
+                    <div class="add_btn"  onclick="showitemdiv(1)">
+                        <span class="plus_span">+</span>
+                    </div>
+                    <div class="add_btn update" onclick="hideitemdiv(1)">
+                        <span>Save</span>
+                    </div>
+                </div>
+            </li>
+
+            <!-- done section -->
+            <li class="drag_column done_column">
+                <span class="header">
+                    <h1>Done</h1>
+                </span>
+
+                <div class="done_content" id="done_content">
+                    <ul class="drag_item_list" id="done_list" ondragover="allowdrop(event)" ondragenter="dragEnter(2)"
+                    ondrop="drop(event)">
+                       
+                    </ul>
+                </div>
+                <div class="add_container">
+                    <div class="add_item"  contenteditable="true"></div>
+                </div>
+
+                <div class="add_btn_group">
+                    <div class="add_btn"  onclick="showitemdiv(2)">
+                        <span class="plus_span">+</span>
+                    </div>
+                    <div class="add_btn update" onclick="hideitemdiv(2)">
+                        <span>Save</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
